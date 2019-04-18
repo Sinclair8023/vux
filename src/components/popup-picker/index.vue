@@ -28,20 +28,22 @@
       @on-show="onPopupShow"
       :popup-style="popupStyle">
         <div class="vux-popup-picker-container">
-          <popup-header
+          <popup-header :title="popupTitle"></popup-header>
+          <picker
+            :data="data"
+            v-model="tempValue"
+            @on-change="onPickerChange"
+            :columns="columns"
+            :fixed-columns="fixedColumns"
+            :container="'#vux-popup-picker-'+uuid"
+            :column-width="columnWidth">
+            </picker>
+              <popup-footer
           :left-text="cancelText || $t('cancel_text')"
           :right-text="confirmText || $t('confirm_text')"
           @on-click-left="onHide(false)"
           @on-click-right="onHide(true)"
-          :title="popupTitle"></popup-header>
-          <picker
-          :data="data"
-          v-model="tempValue"
-          @on-change="onPickerChange"
-          :columns="columns"
-          :fixed-columns="fixedColumns"
-          :container="'#vux-popup-picker-'+uuid"
-          :column-width="columnWidth"></picker>
+          :title="popupTitle"></popup-footer>
         </div>
       </popup>
     </div>
@@ -62,6 +64,7 @@ confirm_text:
 import Picker from '../picker'
 import Cell from '../cell'
 import Popup from '../popup'
+import PopupFooter from '../popup-footer'
 import PopupHeader from '../popup-header'
 import InlineDesc from '../inline-desc'
 import { Flexbox, FlexboxItem } from '../flexbox'
@@ -89,6 +92,7 @@ export default {
     Picker,
     Cell,
     Popup,
+    PopupFooter,
     PopupHeader,
     Flexbox,
     FlexboxItem,

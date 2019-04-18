@@ -51,6 +51,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "object-assign": "^4.1.0",
+    "postcss-pxtorem": "^4.0.1",
     "qr.js": "0.0.0",
     "shake.js": "^1.2.2",
     "validator": "^9.3.0",
@@ -152,6 +153,22 @@
     "webpack-hot-middleware": "^2.20.0",
     "webpack-merge": "^2.6.1",
     "yargs": "^6.6.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "Android >= 4.0",
+          "iOS >= 7"
+        ]
+      },
+      "postcss-pxtorem": {
+        "rootValue": 37.5,
+        "propList": [
+          "*"
+        ]
+      }
+    }
   },
   "engines": {
     "node": ">= 4.0.0",

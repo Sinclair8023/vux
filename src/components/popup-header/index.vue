@@ -1,12 +1,12 @@
 <template>
   <div class="vux-popup-header" :class="showBottomBorder ? 'vux-1px-b' : ''">
-    <div class="vux-popup-header-left" @click="$emit('on-click-left')">
+    <div v-if="leftText" class="vux-popup-header-left" @click="$emit('on-click-left')">
       <slot name="left-text">{{ leftText }}</slot>
     </div>
     <div class="vux-popup-header-title">
       <slot name="title">{{ title }}</slot>
     </div>
-    <div class="vux-popup-header-right" @click="$emit('on-click-right')">
+    <div v-if="rightText" class="vux-popup-header-right" @click="$emit('on-click-right')">
       <slot name="right-text">{{ rightText }}</slot>
     </div>
   </div>
